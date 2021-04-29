@@ -8,7 +8,7 @@
 
 ### Resources
 
-#### <a name="#lister-actor-lambda"></a>Lambda: Executes lister jobs; Invoked by
+#### <a name="lister-actor-lambda"></a>Lambda: Executes lister jobs; Invoked by
 - Source -> [SQS: Lister Job Queue](#lister-job-queue)
 - Send messages to SQS: Lister Feed Polling queue
 
