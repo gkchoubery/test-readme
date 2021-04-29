@@ -8,6 +8,10 @@
 
 ### Resources
 
+#### <a name="#lister-actor-lambda"></a>Lambda: Executes lister jobs; Invoked by
+- Source -> [SQS: Lister Job Queue](#lister-job-queue)
+- Send messages to SQS: Lister Feed Polling queue
+
 #### <a name="lister-job-queue"></a> SQS: Lister Job Queue 
 _Holds the data to process by [Lambda: Lister Actor](#lister-actor-lambda)_
 - SQS: Lister Job Fail Queue (DLQ); 3 fails
@@ -15,10 +19,6 @@ _Holds the data to process by [Lambda: Lister Actor](#lister-actor-lambda)_
 #### Lambda: Sends messages to queue for jobs
 _Gets pending jobs from database and push to [SQS: Lister Job Queue](#lister-job-queue)_
 - Source -> CWEvent: (10 mins) - Invokes Lambda to send messages to SQS
-
-#### <a name="#lister-actor-lambda"></a>Lambda: Executes lister jobs; Invoked by
-- Source -> [SQS: Lister Job Queue](#lister-job-queue)
-- Send messages to SQS: Lister Feed Polling queue
 
 #### <a name="lister-status-update-queue"></a> SQS: Lister Status update queue
 - SQS: Lister status update fail queue (DLQ); 5 fails
